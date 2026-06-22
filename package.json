@@ -1,0 +1,89 @@
+{
+  "name": "why-package",
+  "version": "0.2.0",
+  "description": "Understand exactly why a dependency exists in your project — and whether you can remove it.",
+  "keywords": [
+    "dependencies",
+    "dependency",
+    "why",
+    "unused",
+    "duplicates",
+    "bundle-size",
+    "imports",
+    "npm",
+    "pnpm",
+    "yarn",
+    "cli",
+    "monorepo",
+    "tree-shaking",
+    "depcheck"
+  ],
+  "homepage": "https://github.com/mohammadshehadeh/why-package#readme",
+  "bugs": {
+    "url": "https://github.com/mohammadshehadeh/why-package/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadshehadeh/why-package.git"
+  },
+  "license": "MIT",
+  "author": "why-package contributors",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "why-package": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,js,mjs,cjs,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,js,mjs,cjs,json,md,yml,yaml}\"",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.2.1",
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0",
+    "fast-glob": "^3.3.3",
+    "js-yaml": "^4.1.0",
+    "semver": "^7.6.3",
+    "ts-morph": "^24.0.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.10.5",
+    "@types/semver": "^7.5.8",
+    "@vitest/coverage-v8": "^2.1.8",
+    "prettier": "^3.4.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

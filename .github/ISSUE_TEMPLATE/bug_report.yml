@@ -1,0 +1,42 @@
+name: 🐛 Bug report
+description: Something didn't work the way you expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you run, and what did you see?
+      placeholder: |
+        I ran `why-package react` and ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: dropdown
+    id: manager
+    attributes:
+      label: Package manager
+      options:
+        - npm
+        - pnpm
+        - yarn (classic)
+        - yarn (berry)
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: why-package & Node versions
+      placeholder: 'why-package 0.1.0, Node 20.11.0'
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: A link or minimal steps. The smaller, the faster we can help.

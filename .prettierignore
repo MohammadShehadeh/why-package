@@ -1,0 +1,7 @@
+dist
+coverage
+node_modules
+*.tsbuildinfo
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
