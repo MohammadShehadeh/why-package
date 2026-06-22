@@ -5,11 +5,7 @@ export const icons = {
   success: '✔',
   error: '✖',
   warn: '⚠',
-  info: 'ℹ',
-  bullet: '•',
-  arrow: '→',
   cross: '❌',
-  dot: '·',
 };
 
 /** Semantic, theme-aware text styling. Centralized so colors stay consistent. */
@@ -24,14 +20,11 @@ export const theme = {
   success: (s: string) => chalk.green(s),
   error: (s: string) => chalk.red(s),
   warn: (s: string) => chalk.yellow(s),
-  info: (s: string) => chalk.blue(s),
   added: (s: string) => chalk.green(s),
   removed: (s: string) => chalk.red(s),
-  code: (s: string) => chalk.magenta(s),
 };
 
 /** Force-enable or disable color output (e.g. for --color / --no-color). */
 export function setColorEnabled(enabled: boolean): void {
   if (!enabled) chalk.level = 0;
-  else if (chalk.level === 0) chalk.level = 1;
 }

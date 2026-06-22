@@ -233,23 +233,6 @@ Results are cached per-file by modification time under
 
 Designed to stay responsive on repositories with 100k+ files.
 
-## Programmatic API
-
-Every analysis primitive is exported so you can build your own checks:
-
-```ts
-import { scanProject, aggregatePackageUsage, loadProjectContext } from 'why-package';
-
-const ctx = loadProjectContext(process.cwd());
-const scan = await scanProject({ root: ctx.root });
-const usage = aggregatePackageUsage(scan, 'lodash');
-
-console.log(usage.importers); // files that import lodash
-console.log(usage.usedExports); // named exports actually used
-```
-
-See [`src/index.ts`](./src/index.ts) for the full surface.
-
 ## Accuracy & caveats
 
 `why-package` favors being honest over being confident:

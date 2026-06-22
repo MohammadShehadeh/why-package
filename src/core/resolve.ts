@@ -37,11 +37,6 @@ export function readInstalledManifest(root: string, name: string): InstalledPack
   }
 }
 
-/** The installed version of a package, or null when it is not installed. */
-export function installedVersion(root: string, name: string): string | null {
-  return readInstalledManifest(root, name)?.manifest.version ?? null;
-}
-
 /**
  * Total on-disk size of a package's own files (in bytes), excluding nested
  * node_modules so transitive deps aren't double-counted.

@@ -37,12 +37,10 @@ node dist/cli.js react --cwd /path/to/some/project
 ```
 src/
 ├─ cli.ts            # Commander entry point
-├─ index.ts          # Public programmatic API
 ├─ commands/         # One module per command (why, unused, duplicates, graph, interactive)
 ├─ core/             # Analysis engine
 │  ├─ scanner.ts     #   source file scanning
 │  ├─ imports.ts     #   ts-morph import extraction
-│  ├─ moduleGraph.ts #   first-party module graph
 │  ├─ lockfile/      #   npm / pnpm / yarn parsers → normalized graph
 │  ├─ depGraph.ts    #   chains, duplicates, tree merging
 │  ├─ exports.ts     #   package export detection

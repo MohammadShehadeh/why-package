@@ -1,4 +1,4 @@
-import yaml from 'js-yaml';
+import { load as loadYaml } from 'js-yaml';
 import type { LockNode, NormalizedLock } from '../../types';
 import { addVersion } from './shared';
 
@@ -26,7 +26,7 @@ interface PnpmLockfile {
 
 /** Parse a pnpm-lock.yaml into a normalized graph. */
 export function parsePnpmLock(content: string, lockfilePath: string): NormalizedLock {
-  const data = (yaml.load(content) ?? {}) as PnpmLockfile;
+  const data = (loadYaml(content) ?? {}) as PnpmLockfile;
   const nodes = new Map<string, LockNode>();
   const versionsByName = new Map<string, string[]>();
 

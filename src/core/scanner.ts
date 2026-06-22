@@ -11,11 +11,10 @@ export interface ScanOptions {
   root: string;
   /** Optional persistent cache; pass null to disable. */
   cache?: ScanCache | null;
-  /** Extra ignore globs (in addition to the built-in defaults). */
-  ignore?: string[];
-  /** Max concurrent file reads. */
-  concurrency?: number;
 }
+
+/** Max concurrent file reads — keeps memory and file handles bounded. */
+const CONCURRENCY = 24;
 
 /**
  * Scan a project's first-party source files and extract their imports.
@@ -23,11 +22,11 @@ export interface ScanOptions {
  * unchanged files are served from the cache when one is supplied.
  */
 export async function scanProject(options: ScanOptions): Promise<ScanResult> {
-  const { root, cache = null, ignore = [], concurrency = 24 } = options;
+  const { root, cache = null } = options;
   const startedAt = Date.now();
 
   const pattern = `**/*.{${SOURCE_EXTENSIONS.map((ext) => ext.slice(1)).join(',')}}`;
-  const ignoreGlobs = [...DEFAULT_IGNORE_DIRS.map((dir) => `**/${dir}/**`), ...ignore];
+  const ignoreGlobs = DEFAULT_IGNORE_DIRS.map((dir) => `**/${dir}/**`);
 
   const files = await fg(pattern, {
     cwd: root,
@@ -41,7 +40,7 @@ export async function scanProject(options: ScanOptions): Promise<ScanResult> {
   let cached = 0;
   const results = await mapWithConcurrency<string, FileImports>(
     files,
-    concurrency,
+    CONCURRENCY,
     async (file) => {
       let mtimeMs = 0;
       let size = 0;

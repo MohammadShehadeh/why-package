@@ -9,9 +9,11 @@ const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 export interface BundleOptions {
   /** Project root, used for the on-disk cache. */
   root?: string;
-  timeoutMs?: number;
   noCache?: boolean;
 }
+
+/** Network timeout for the Bundlephobia lookup. */
+const TIMEOUT_MS = 8000;
 
 /**
  * Look up a package's bundle size from Bundlephobia, with a 7-day on-disk
@@ -30,7 +32,7 @@ export async function getBundleInfo(
     if (cached) return cached;
   }
 
-  const info = await fetchFromApi(name, version, options.timeoutMs ?? 8000);
+  const info = await fetchFromApi(name, version, TIMEOUT_MS);
 
   if (options.root && info.source === 'bundlephobia') {
     writeCache(options.root, key, info);

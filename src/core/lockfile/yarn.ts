@@ -1,4 +1,4 @@
-import yaml from 'js-yaml';
+import { load as loadYaml } from 'js-yaml';
 import semver from 'semver';
 import type { LockNode, NormalizedLock, PackageJson } from '../../types';
 import { addVersion, rootRangesFromPackageJson } from './shared';
@@ -113,7 +113,7 @@ function parseClassic(content: string): Map<string, YarnEntry> {
 /** Berry (v2+) yarn.lock is valid YAML. */
 function parseBerry(content: string): Map<string, YarnEntry> {
   const result = new Map<string, YarnEntry>();
-  const data = (yaml.load(content) ?? {}) as Record<string, unknown>;
+  const data = (loadYaml(content) ?? {}) as Record<string, unknown>;
 
   for (const [headerKey, value] of Object.entries(data)) {
     if (headerKey === '__metadata' || !value || typeof value !== 'object') continue;

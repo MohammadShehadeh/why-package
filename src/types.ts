@@ -138,6 +138,4 @@ export interface TreeNode {
 export interface Recommendation {
   /** Human-readable lines describing the recommendation. */
   lines: string[];
-  /** Suggested alternative package, if any. */
-  alternative?: string;
 }

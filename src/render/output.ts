@@ -1,4 +1,4 @@
-import { icons, theme } from './theme';
+import { theme } from './theme';
 
 export interface Block {
   title: string;
@@ -29,19 +29,4 @@ export function renderList(items: readonly string[], options: ListOptions = {}):
   const { marker = '-', color, empty = theme.dim('(none)') } = options;
   if (items.length === 0) return empty;
   return items.map((item) => `${theme.dim(marker)} ${color ? color(item) : item}`).join('\n');
-}
-
-/** A single status line, e.g. "✔ done". */
-export function statusLine(kind: 'success' | 'error' | 'warn' | 'info', message: string): string {
-  const icon = icons[kind];
-  return `${theme[kind](icon)} ${message}`;
-}
-
-/** Indent every line of a block of text. */
-export function indent(text: string, spaces = 2): string {
-  const pad = ' '.repeat(spaces);
-  return text
-    .split('\n')
-    .map((line) => (line.length > 0 ? pad + line : line))
-    .join('\n');
 }

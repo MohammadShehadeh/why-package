@@ -33,8 +33,3 @@ export function packageNameFromSpecifier(specifier: string): string | null {
   }
   return parts[0] || null;
 }
-
-/** Whether a specifier imports (a subpath of) the given package. */
-export function specifierMatchesPackage(specifier: string, packageName: string): boolean {
-  return packageNameFromSpecifier(specifier) === packageName;
-}

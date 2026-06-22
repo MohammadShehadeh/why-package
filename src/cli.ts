@@ -57,7 +57,6 @@ Examples:
     const options: CommonOptions = {
       cwd: path.resolve(raw.cwd),
       cache: raw.cache,
-      color: raw.color,
       bundle: raw.bundle,
       json: raw.json ?? false,
     };

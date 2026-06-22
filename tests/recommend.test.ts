@@ -41,8 +41,8 @@ describe('buildRecommendation', () => {
       totalExports: null,
       isDeclared: true,
     });
-    expect(rec.alternative).toBe('dayjs or date-fns');
     expect(rec.lines.join(' ')).toContain('Potential alternative');
+    expect(rec.lines.join(' ')).toContain('dayjs or date-fns');
   });
 
   it('warns about large gzip footprint', () => {

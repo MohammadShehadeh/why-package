@@ -64,5 +64,5 @@ export function buildRecommendation(input: RecommendationInput): Recommendation 
 
   if (lines.length === 0) lines.push('This dependency looks reasonable.');
 
-  return { lines, alternative: known?.alt };
+  return { lines };
 }

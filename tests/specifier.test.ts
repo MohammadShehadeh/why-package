@@ -1,10 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  isBuiltin,
-  isRelative,
-  packageNameFromSpecifier,
-  specifierMatchesPackage,
-} from '../src/utils/specifier';
+import { isBuiltin, isRelative, packageNameFromSpecifier } from '../src/utils/specifier';
 
 describe('packageNameFromSpecifier', () => {
   it('returns bare package names', () => {
@@ -44,12 +39,5 @@ describe('isRelative / isBuiltin', () => {
     expect(isBuiltin('fs')).toBe(true);
     expect(isBuiltin('node:path')).toBe(true);
     expect(isBuiltin('lodash')).toBe(false);
-  });
-});
-
-describe('specifierMatchesPackage', () => {
-  it('matches a subpath import to its package', () => {
-    expect(specifierMatchesPackage('lodash/fp', 'lodash')).toBe(true);
-    expect(specifierMatchesPackage('lodash', 'underscore')).toBe(false);
   });
 });

@@ -6,7 +6,6 @@ import { pluralize } from '../utils/format';
 export interface CommonOptions {
   cwd: string;
   cache: boolean;
-  color: boolean;
   bundle: boolean;
   json: boolean;
 }
