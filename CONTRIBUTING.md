@@ -5,7 +5,7 @@ Thanks for your interest in improving `why-package`! 🎉
 ## Getting started
 
 ```bash
-git clone https://github.com/mohammadshehadeh/why-package.git
+git clone https://github.com/MohammadShehadeh/why-package.git
 cd why-package
 pnpm install
 ```

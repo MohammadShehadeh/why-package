@@ -3,7 +3,7 @@
 > Understand exactly **why** a dependency exists in your project — and whether you can remove it.
 
 [![npm version](https://img.shields.io/npm/v/why-package.svg)](https://www.npmjs.com/package/why-package)
-[![CI](https://github.com/mohammadshehadeh/why-package/actions/workflows/ci.yml/badge.svg)](https://github.com/mohammadshehadeh/why-package/actions/workflows/ci.yml)
+[![CI](https://github.com/MohammadShehadeh/why-package/actions/workflows/ci.yml/badge.svg)](https://github.com/MohammadShehadeh/why-package/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/why-package.svg)](./LICENSE)
 [![node](https://img.shields.io/node/v/why-package.svg)](https://nodejs.org)
 

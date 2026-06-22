@@ -18,13 +18,13 @@
     "tree-shaking",
     "depcheck"
   ],
-  "homepage": "https://github.com/mohammadshehadeh/why-package#readme",
+  "homepage": "https://github.com/MohammadShehadeh/why-package#readme",
   "bugs": {
-    "url": "https://github.com/mohammadshehadeh/why-package/issues"
+    "url": "https://github.com/MohammadShehadeh/why-package/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohammadshehadeh/why-package.git"
+    "url": "git+https://github.com/MohammadShehadeh/why-package.git"
   },
   "license": "MIT",
   "author": "why-package contributors",
