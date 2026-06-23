@@ -1,6 +1,6 @@
 {
   "name": "why-package",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Understand exactly why a dependency exists in your project — and whether you can remove it.",
   "keywords": [
     "dependencies",
